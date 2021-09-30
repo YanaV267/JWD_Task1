@@ -35,7 +35,7 @@ public class CustomArray {
 
     @Override
     public int hashCode() {
-        return 31 + (array == null ? Arrays.hashCode(array) : 0);
+        return 31 + (array == null ? 0 : Arrays.hashCode(array));
     }
 
     @Override
