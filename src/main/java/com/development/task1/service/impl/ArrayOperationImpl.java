@@ -12,10 +12,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double findMinNumber(CustomArray customArray) {
         double minValue = customArray.getArray()[0];
-        for (int i = 1; i < customArray.getArray().length; i++) {
-            if (!ArrayValidator.checkArray(customArray, 0)) {
-                continue;
-            }
+        for (int i = 1; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
             if (customArray.getArray()[i] < minValue) {
                 minValue = customArray.getArray()[i];
             }
@@ -26,10 +23,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double findMaxNumber(CustomArray customArray) {
         double maxValue = ArrayValidator.checkArray(customArray, 0) ? customArray.getArray()[0] : 0;
-        for (int i = 1; i < customArray.getArray().length; i++) {
-            if (!ArrayValidator.checkArray(customArray, 0)) {
-                continue;
-            }
+        for (int i = 1; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
             if (customArray.getArray()[i] > maxValue) {
                 maxValue = customArray.getArray()[i];
             }
@@ -52,10 +46,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double countPositiveNumbers(CustomArray customArray) {
         double amount = 0;
-        for (int i = 0; i < customArray.getArray().length; i++) {
-            if (!ArrayValidator.checkArray(customArray, 0)) {
-                continue;
-            }
+        for (int i = 0; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
             if (customArray.getArray()[i] > 0) {
                 amount++;
             }
@@ -66,10 +57,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double countNegativeNumbers(CustomArray customArray) {
         double amount = 0;
-        for (int i = 0; i < customArray.getArray().length; i++) {
-            if (!ArrayValidator.checkArray(customArray, 0)) {
-                continue;
-            }
+        for (int i = 0; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
             if (customArray.getArray()[i] < 0) {
                 amount++;
             }
@@ -91,10 +79,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double calculateSummaryValue(CustomArray customArray) {
         double result = 0;
-        for (int i = 0; i < customArray.getArray().length; i++) {
-            if (!ArrayValidator.checkArray(customArray, 0)) {
-                continue;
-            }
+        for (int i = 0; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
             result += customArray.getArray()[i];
         }
         return result;
