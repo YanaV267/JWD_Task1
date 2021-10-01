@@ -6,21 +6,23 @@ import com.development.task1.exception.CustomArrayException;
 import com.development.task1.parser.ArrayParser;
 import com.development.task1.validator.ArrayValidator;
 
+import java.util.Arrays;
+
 public class ArrayParserImpl implements ArrayParser {
     private final ArrayCreatorImpl arrayCreator = new ArrayCreatorImpl();
 
     @Override
     public CustomArray parseNumber(String[] numberValues) throws CustomArrayException {
-        if (!ArrayValidator.checkSize(numberValues)) {
-            throw new CustomArrayException("Данных в файле нет");
+        if (numberValues == null) {
+            throw new CustomArrayException("File is empty. No data was found in it.");
         }
-        double[] array = new double[numberValues.length];
+        double[] tempArray = new double[numberValues.length];
         int index = 0;
         for (String numberValue : numberValues) {
             if (ArrayValidator.checkNumberValue(numberValue)) {
-                array[index++] = Double.parseDouble(numberValue);
+                tempArray[index++] = Double.parseDouble(numberValue);
             }
         }
-        return arrayCreator.createArray(array);
+        return arrayCreator.createArray(Arrays.copyOf(tempArray, index));
     }
 }

@@ -11,8 +11,8 @@ public class ArrayOperationImpl implements ArrayOperation {
 
     @Override
     public double findMinNumber(CustomArray customArray) {
-        double minValue = customArray.getArray()[0];
-        for (int i = 1; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
+        double minValue = customArray.getArray().length == 0 ? 0 : customArray.getArray()[0];
+        for (int i = 1; i < customArray.getArray().length; i++) {
             if (customArray.getArray()[i] < minValue) {
                 minValue = customArray.getArray()[i];
             }
@@ -22,8 +22,8 @@ public class ArrayOperationImpl implements ArrayOperation {
 
     @Override
     public double findMaxNumber(CustomArray customArray) {
-        double maxValue = ArrayValidator.checkArray(customArray, 0) ? customArray.getArray()[0] : 0;
-        for (int i = 1; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
+        double maxValue = customArray.getArray().length == 0 ? 0 : customArray.getArray()[0];
+        for (int i = 1; i < customArray.getArray().length; i++) {
             if (customArray.getArray()[i] > maxValue) {
                 maxValue = customArray.getArray()[i];
             }
@@ -34,7 +34,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public CustomArray replaceInPosition(CustomArray customArray, int position, double newValue) {
         if (!ArrayValidator.checkPosition(customArray, position)) {
-            LOGGER.error(" заданная позиция не входит в диапазон допустимых для данного массива");
+            LOGGER.error(" position is out of range for current array");
         } else {
             double[] array = customArray.getArray();
             array[position] = newValue;
@@ -46,7 +46,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double countPositiveNumbers(CustomArray customArray) {
         double amount = 0;
-        for (int i = 0; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
+        for (int i = 0; i < customArray.getArray().length; i++) {
             if (customArray.getArray()[i] > 0) {
                 amount++;
             }
@@ -57,7 +57,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double countNegativeNumbers(CustomArray customArray) {
         double amount = 0;
-        for (int i = 0; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
+        for (int i = 0; i < customArray.getArray().length; i++) {
             if (customArray.getArray()[i] < 0) {
                 amount++;
             }
@@ -68,7 +68,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double calculateAverageValue(CustomArray customArray) {
         double result = calculateSummaryValue(customArray);
-        if (!ArrayValidator.checkSize(customArray)) {
+        if (customArray.getArray().length == 0) {
             result = 0;
         } else {
             result /= customArray.getArray().length;
@@ -79,7 +79,7 @@ public class ArrayOperationImpl implements ArrayOperation {
     @Override
     public double calculateSummaryValue(CustomArray customArray) {
         double result = 0;
-        for (int i = 0; i < customArray.getArray().length && ArrayValidator.checkArray(customArray, i); i++) {
+        for (int i = 0; i < customArray.getArray().length; i++) {
             result += customArray.getArray()[i];
         }
         return result;

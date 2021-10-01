@@ -1,4 +1,4 @@
-package task1.creator;
+package test.development.task1.creator;
 
 import com.development.task1.creator.impl.ArrayCreatorImpl;
 import com.development.task1.entity.CustomArray;

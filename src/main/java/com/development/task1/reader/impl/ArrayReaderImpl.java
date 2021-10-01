@@ -2,28 +2,28 @@ package com.development.task1.reader.impl;
 
 import com.development.task1.exception.CustomArrayException;
 import com.development.task1.reader.ArrayReader;
-import com.development.task1.validator.ArrayValidator;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ArrayReaderImpl implements ArrayReader {
     private static final String DELIMITER = "/";
 
     @Override
     public String[] readNumbers(String path) throws CustomArrayException {
-        if (!ArrayValidator.checkFile(path)) {
-            throw new CustomArrayException("файл " + path + " в заданной директории не существует");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
+        if (inputStream == null) {
+            throw new CustomArrayException("file " + path + " doesn't exits in this directory");
         }
         String[] lineOfNumbers = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+        try (InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+             BufferedReader reader = new BufferedReader(streamReader)) {
             String fileData;
-            while ((fileData = reader.readLine()) != null && lineOfNumbers == null) {
+            if ((fileData = reader.readLine()) != null) {
                 lineOfNumbers = fileData.split(DELIMITER);
             }
         } catch (IOException exception) {
-            throw new CustomArrayException("ошибка чтения файла " + path, exception);
+            throw new CustomArrayException("error was found while reading " + path, exception);
         }
         return lineOfNumbers;
     }

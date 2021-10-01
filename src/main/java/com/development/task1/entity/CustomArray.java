@@ -1,8 +1,9 @@
 package com.development.task1.entity;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class CustomArray {
+public class CustomArray implements Serializable {
     private double[] array;
 
     public CustomArray() {
@@ -14,11 +15,11 @@ public class CustomArray {
     }
 
     public double[] getArray() {
-        return array.clone();
+        return Arrays.copyOf(array, array.length);
     }
 
     public void setArray(double[] array) {
-        this.array = array;
+        this.array = Arrays.copyOf(array, array.length);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class CustomArray {
             return false;
         }
         CustomArray that = (CustomArray) o;
-        return that.array == array;
+        return Arrays.compare(that.array, array) == 0;
     }
 
     @Override
