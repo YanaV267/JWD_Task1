@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class NumberParserTest {
+public class ArrayParserTest {
     static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
 
     @Test

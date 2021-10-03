@@ -2,7 +2,7 @@ package com.development.task1.service.impl;
 
 import com.development.task1.entity.CustomArray;
 import com.development.task1.service.ArrayOperation;
-import com.development.task1.validator.ArrayValidator;
+import com.development.task1.validator.impl.ArrayValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,7 +33,8 @@ public class ArrayOperationImpl implements ArrayOperation {
 
     @Override
     public CustomArray replaceInPosition(CustomArray customArray, int position, double newValue) {
-        if (!ArrayValidator.checkPosition(customArray, position)) {
+        ArrayValidatorImpl arrayValidator = new ArrayValidatorImpl();
+        if (!arrayValidator.checkPosition(customArray, position)) {
             LOGGER.error(" position is out of range for current array");
         } else {
             double[] array = customArray.getArray();

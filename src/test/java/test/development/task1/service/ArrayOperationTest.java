@@ -11,18 +11,18 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class NumberOperationTest {
+public class ArrayOperationTest {
     static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
-    private final ArrayOperationImpl numberOperation = new ArrayOperationImpl();
+    private final ArrayOperationImpl arrayOperation = new ArrayOperationImpl();
     private CustomArray customArray;
 
     @BeforeTest
     public void init() {
-        ArrayReaderImpl numberReader = new ArrayReaderImpl();
-        ArrayParserImpl numberParser = new ArrayParserImpl();
+        ArrayReaderImpl arrayReader = new ArrayReaderImpl();
+        ArrayParserImpl arrayParser = new ArrayParserImpl();
         try {
-            String[] readNumbers = numberReader.readNumbers("data/numbers.txt");
-            customArray = numberParser.parseNumber(readNumbers);
+            String[] readNumbers = arrayReader.readNumbers("data/numbers.txt");
+            customArray = arrayParser.parseNumber(readNumbers);
         } catch (CustomArrayException exception) {
             LOGGER.error("error of extracting numbers " + exception.getMessage());
         }
@@ -31,14 +31,14 @@ public class NumberOperationTest {
     @Test
     public void findMinNumber() {
         double expected = 5;
-        double actual = numberOperation.findMinNumber(customArray);
+        double actual = arrayOperation.findMinNumber(customArray);
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void findMaxNumber() {
         double expected = 18;
-        double actual = numberOperation.findMaxNumber(customArray);
+        double actual = arrayOperation.findMaxNumber(customArray);
         Assert.assertEquals(actual, expected);
     }
 
@@ -46,35 +46,35 @@ public class NumberOperationTest {
     public void replaceInPosition() {
         double newValue = 14;
         int position = 3;
-        customArray = numberOperation.replaceInPosition(customArray, position, newValue);
+        customArray = arrayOperation.replaceInPosition(customArray, position, newValue);
         Assert.assertEquals(customArray.getArray()[position], newValue);
     }
 
     @Test
     public void countPositiveNumbers() {
         double expected = 3;
-        double actual = numberOperation.countPositiveNumbers(customArray);
+        double actual = arrayOperation.countPositiveNumbers(customArray);
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void countNegativeNumbers() {
         double expected = 1;
-        double actual = numberOperation.countPositiveNumbers(customArray);
+        double actual = arrayOperation.countPositiveNumbers(customArray);
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void calculateAverageValue() {
         double expected = 15;
-        double actual = numberOperation.calculateAverageValue(customArray);
+        double actual = arrayOperation.calculateAverageValue(customArray);
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void calculateSummaryValue() {
         double expected = 15;
-        double actual = numberOperation.calculateSummaryValue(customArray);
+        double actual = arrayOperation.calculateSummaryValue(customArray);
         Assert.assertEquals(actual, expected);
     }
 }

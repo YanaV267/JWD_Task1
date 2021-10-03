@@ -5,13 +5,7 @@ import com.development.task1.reader.impl.ArrayReaderImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-
-public class NumberReaderTest {
+public class ArrayReaderTest {
 
     @Test
     public void readNumbers() throws CustomArrayException {
