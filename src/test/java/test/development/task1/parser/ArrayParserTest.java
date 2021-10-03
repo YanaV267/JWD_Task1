@@ -17,7 +17,6 @@ public class ArrayParserTest {
         String[] actualNumbers = {"15", "0..5", "-3"};
         ArrayParserImpl arrayParser = new ArrayParserImpl();
         CustomArray customArray = arrayParser.parseNumber(actualNumbers);
-        Assert.assertEquals(customArray.getArray()[0], expected);
-        LOGGER.info("тест извлечения чисел из файла прошёл успешно");
+        Assert.assertEquals(customArray.getArray()[0], expected, "invalid numbers parsing");
     }
 }

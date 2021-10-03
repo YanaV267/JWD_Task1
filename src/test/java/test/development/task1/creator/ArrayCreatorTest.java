@@ -16,7 +16,6 @@ public class ArrayCreatorTest {
         ArrayCreatorImpl arrayCreator = new ArrayCreatorImpl();
         double[] actualArray = {4, 7, 3};
         CustomArray customArray = arrayCreator.createArray(actualArray);
-        Assert.assertEquals(customArray.getArray()[1], expected);
-        LOGGER.info("тест создания объекта массива прошёл успешно");
+        Assert.assertEquals(customArray.getArray()[1], expected, "invalid array object creating");
     }
 }

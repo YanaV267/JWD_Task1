@@ -33,7 +33,7 @@ public class ArraySortingTest {
         double[] array = arraySorting.selectionSort(customArray.getArray());
         double expected = 18;
         double actual = array[0];
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected, "selection sort is invalid");
     }
 
     @Test
@@ -41,7 +41,7 @@ public class ArraySortingTest {
         double[] array = arraySorting.bubbleSort(customArray.getArray());
         double expected = -8;
         double actual = array[0];
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected, "bubble sort is invalid");
     }
 
     @Test
@@ -49,6 +49,6 @@ public class ArraySortingTest {
         double[] array = arraySorting.insertionSort(customArray.getArray());
         double expected = 0;
         double actual = array[0];
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected, "insertion sort is invalid");
     }
 }
