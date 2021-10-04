@@ -29,14 +29,14 @@ public class ArrayOperationTest {
     }
 
     @Test
-    public void findMinNumber() {
+    public void findMinNumber() throws CustomArrayException {
         double expected = 5;
         double actual = arrayOperation.findMinNumber(customArray);
         Assert.assertEquals(actual, expected, "min number is invalid");
     }
 
     @Test
-    public void findMaxNumber() {
+    public void findMaxNumber() throws CustomArrayException {
         double expected = 18;
         double actual = arrayOperation.findMaxNumber(customArray);
         Assert.assertEquals(actual, expected, "max number is invalid");
@@ -44,7 +44,7 @@ public class ArrayOperationTest {
 
     @Test
     public void replaceInPosition() {
-        double newValue = 14;
+        double newValue = 11;
         int position = 3;
         customArray = arrayOperation.replaceInPosition(customArray, position, newValue);
         Assert.assertEquals(customArray.getArray()[position], newValue, "replacement is invalid");
@@ -66,7 +66,7 @@ public class ArrayOperationTest {
 
     @Test
     public void calculateAverageValue() {
-        double expected = 15;
+        double expected = 4.5;
         double actual = arrayOperation.calculateAverageValue(customArray);
         Assert.assertEquals(actual, expected, "average value of numbers is invalid");
     }

@@ -8,17 +8,16 @@
                 </pattern>>
             </PatternLayout>
         </Console>
-        <RollingFile name="file" fileName="logs/logFile.log" >
-            <PatternLayout>
-                <pattern>
-                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t]   %c{1} - %msg%n
-                </pattern>
-            </PatternLayout>
+        <RollingFile name="file" fileName="logs/logFile.log" append="true"
+                     filePattern="logs/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}_%i.log">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t]   %c{1} - %msg%n"/>
             <Policies>
+                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="100 KB"/>
             </Policies>
             <DefaultRolloverStrategy max="15"/>
         </RollingFile>
+
     </Appenders>
     <Loggers>
         <Root level="all">
