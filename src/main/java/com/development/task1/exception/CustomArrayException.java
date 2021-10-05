@@ -3,6 +3,7 @@ package com.development.task1.exception;
 public class CustomArrayException extends Exception {
 
     public CustomArrayException() {
+        super();
     }
 
     public CustomArrayException(String message) {
