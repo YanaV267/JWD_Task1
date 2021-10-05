@@ -4,16 +4,16 @@ import com.development.task1.entity.CustomArray;
 import com.development.task1.exception.CustomArrayException;
 import com.development.task1.parser.impl.ArrayParserImpl;
 import com.development.task1.reader.impl.ArrayReaderImpl;
-import com.development.task1.service.impl.ArrayOperationImpl;
+import com.development.task1.service.impl.ArrayOperationStreamImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class ArrayOperationTest {
+public class ArrayOperationStreamTest {
     static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
-    private final ArrayOperationImpl arrayOperation = new ArrayOperationImpl();
+    private final ArrayOperationStreamImpl arrayOperation = new ArrayOperationStreamImpl();
     private CustomArray customArray;
 
     @BeforeTest
@@ -29,14 +29,14 @@ public class ArrayOperationTest {
     }
 
     @Test
-    public void findMinNumber() {
+    public void findMinNumber() throws CustomArrayException {
         double expected = 5;
         double actual = arrayOperation.findMinNumber(customArray);
         Assert.assertEquals(actual, expected, "min number is invalid");
     }
 
     @Test
-    public void findMaxNumber() {
+    public void findMaxNumber() throws CustomArrayException {
         double expected = 18;
         double actual = arrayOperation.findMaxNumber(customArray);
         Assert.assertEquals(actual, expected, "max number is invalid");
