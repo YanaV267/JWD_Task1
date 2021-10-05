@@ -33,7 +33,9 @@ public class ArrayOperationImpl implements ArrayOperation {
             LOGGER.error(" position is out of range for current array");
         }
         double value = customArray.getArray()[position];
-        customArray.setArray(DoubleStream.of(customArray.getArray()).map(num -> num == value? newValue:num).toArray());
+        customArray.setArray(DoubleStream.of(customArray.getArray())
+                .map(num -> num == value? newValue:num)
+                .toArray());
         return customArray;
     }
 

@@ -4,7 +4,6 @@ import com.development.task1.creator.impl.ArrayCreatorImpl;
 import com.development.task1.entity.CustomArray;
 import com.development.task1.exception.CustomArrayException;
 import com.development.task1.parser.ArrayParser;
-import com.development.task1.validator.ArrayValidator;
 import com.development.task1.validator.impl.ArrayValidatorImpl;
 
 import java.util.Arrays;
