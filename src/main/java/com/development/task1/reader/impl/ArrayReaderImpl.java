@@ -7,7 +7,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class ArrayReaderImpl implements ArrayReader {
-    private static final String DELIMITER = "/";
+    private static final String DELIMITER_REGEX = "/";
 
     @Override
     public String[] readNumbers(String path) throws CustomArrayException {
@@ -20,7 +20,7 @@ public class ArrayReaderImpl implements ArrayReader {
              BufferedReader reader = new BufferedReader(streamReader)) {
             arrayOfNumbers = reader.lines()
                     .findFirst()
-                    .map(line -> line.split(DELIMITER)).orElse(null);
+                    .map(line -> line.split(DELIMITER_REGEX)).orElse(null);
         } catch (IOException exception) {
             throw new CustomArrayException("error was found while reading " + path, exception);
         }

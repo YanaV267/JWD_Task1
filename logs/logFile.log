@@ -1,1 +1,1 @@
-[ERROR] 2021-10-04 21:15:35.645 [main]   CustomArray - error of extracting numbers error was found while reading data/numbers.txt
+[ERROR] 2021-10-05 10:11:41.344 [main]   CustomArray - error of extracting numbers File is empty. No data was found in it.

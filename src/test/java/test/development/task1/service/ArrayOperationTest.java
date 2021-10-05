@@ -24,7 +24,7 @@ public class ArrayOperationTest {
             String[] readNumbers = arrayReader.readNumbers("data/numbers.txt");
             customArray = arrayParser.parseNumber(readNumbers);
         } catch (CustomArrayException exception) {
-            LOGGER.error("error of extracting numbers " + exception.getMessage());
+            LOGGER.error("error of extracting numbers: " + exception.getMessage());
         }
     }
 
