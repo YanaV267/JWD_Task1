@@ -1,31 +1,19 @@
 package test.development.task1.service;
 
 import com.development.task1.entity.CustomArray;
-import com.development.task1.exception.CustomArrayException;
-import com.development.task1.parser.impl.ArrayParserImpl;
-import com.development.task1.reader.impl.ArrayReaderImpl;
 import com.development.task1.service.impl.ArraySortingImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class ArraySortingTest {
-    static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
-    private final ArraySortingImpl arraySorting = new ArraySortingImpl();
+    private ArraySortingImpl arraySorting;
     private CustomArray customArray;
 
     @BeforeTest
     public void init() {
-        ArrayReaderImpl numberReader = new ArrayReaderImpl();
-        ArrayParserImpl numberParser = new ArrayParserImpl();
-        try {
-            String[] readNumbers = numberReader.readNumbers("data/numbers.txt");
-            customArray = numberParser.parseNumber(readNumbers);
-        } catch (CustomArrayException exception) {
-            LOGGER.error("error of extracting numbers " + exception.getMessage());
-        }
+        arraySorting = new ArraySortingImpl();
+        customArray = new CustomArray(9, -4, 0, 17, 2.4);
     }
 
     @Test

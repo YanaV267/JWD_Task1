@@ -5,6 +5,7 @@ import com.development.task1.exception.CustomArrayException;
 import com.development.task1.parser.impl.ArrayParserImpl;
 import com.development.task1.reader.impl.ArrayReaderImpl;
 import com.development.task1.service.impl.ArrayOperationImpl;
+import com.development.task1.service.impl.ArrayOperationStreamImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -12,20 +13,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class ArrayOperationTest {
-    static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
-    private final ArrayOperationImpl arrayOperation = new ArrayOperationImpl();
+    private ArrayOperationImpl arrayOperation;
     private CustomArray customArray;
 
     @BeforeTest
     public void init() {
-        ArrayReaderImpl arrayReader = new ArrayReaderImpl();
-        ArrayParserImpl arrayParser = new ArrayParserImpl();
-        try {
-            String[] readNumbers = arrayReader.readNumbers("data/numbers.txt");
-            customArray = arrayParser.parseNumber(readNumbers);
-        } catch (CustomArrayException exception) {
-            LOGGER.error("error of extracting numbers: " + exception.getMessage());
-        }
+        arrayOperation = new ArrayOperationImpl();
+        customArray = new CustomArray(9, -4, 0, 17, 2.4);
     }
 
     @Test
