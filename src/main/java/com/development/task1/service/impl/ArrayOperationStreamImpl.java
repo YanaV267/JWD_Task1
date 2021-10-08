@@ -1,7 +1,6 @@
 package com.development.task1.service.impl;
 
 import com.development.task1.entity.CustomArray;
-import com.development.task1.exception.CustomArrayException;
 import com.development.task1.service.ArrayOperationStream;
 import com.development.task1.validator.impl.ArrayValidatorImpl;
 import org.apache.logging.log4j.LogManager;
@@ -13,17 +12,17 @@ public class ArrayOperationStreamImpl implements ArrayOperationStream {
     static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
 
     @Override
-    public double findMinNumber(CustomArray customArray) throws CustomArrayException {
+    public double findMinNumber(CustomArray customArray) {
         return DoubleStream.of(customArray.getArray())
                 .min()
-                .orElseThrow(CustomArrayException::new);
+                .getAsDouble();
     }
 
     @Override
-    public double findMaxNumber(CustomArray customArray) throws CustomArrayException {
+    public double findMaxNumber(CustomArray customArray) {
         return DoubleStream.of(customArray.getArray())
                 .max()
-                .orElseThrow(CustomArrayException::new);
+                .getAsDouble();
     }
 
     @Override
