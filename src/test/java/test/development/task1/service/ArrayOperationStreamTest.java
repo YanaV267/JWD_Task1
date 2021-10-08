@@ -18,14 +18,14 @@ public class ArrayOperationStreamTest {
     }
 
     @Test
-    public void findMinNumber() {
+    public void findMinNumber() throws CustomArrayException {
         double expected = -4;
         double actual = arrayOperationStream.findMinNumber(customArray);
         Assert.assertEquals(actual, expected, "min number is invalid");
     }
 
     @Test
-    public void findMaxNumber() {
+    public void findMaxNumber() throws CustomArrayException {
         double expected = 18;
         double actual = arrayOperationStream.findMaxNumber(customArray);
         Assert.assertEquals(actual, expected, "max number is invalid");

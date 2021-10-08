@@ -16,11 +16,10 @@ public class ArrayParserImpl implements ArrayParser {
             throw new CustomArrayException("File is empty. No data was found in it.");
         }
         ArrayCreatorImpl arrayCreator = new ArrayCreatorImpl();
-        ArrayValidatorImpl arrayValidator = new ArrayValidatorImpl();
         double[] tempArray = new double[numberValues.length];
         int index = 0;
         for (String numberValue : numberValues) {
-            if (arrayValidator.checkNumberValue(numberValue)) {
+            if (ArrayValidatorImpl.getInstance().checkNumberValue(numberValue)) {
                 tempArray[index++] = Double.parseDouble(numberValue);
             }
         }

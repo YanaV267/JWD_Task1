@@ -1,13 +1,7 @@
 package test.development.task1.service;
 
 import com.development.task1.entity.CustomArray;
-import com.development.task1.exception.CustomArrayException;
-import com.development.task1.parser.impl.ArrayParserImpl;
-import com.development.task1.reader.impl.ArrayReaderImpl;
 import com.development.task1.service.impl.ArrayOperationImpl;
-import com.development.task1.service.impl.ArrayOperationStreamImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
