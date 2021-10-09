@@ -33,7 +33,7 @@ public class ArrayOperationStreamImpl implements ArrayOperationStream {
         }
         double value = customArray.getArray()[position];
         customArray.setArray(DoubleStream.of(customArray.getArray())
-                .map(num -> num == value? newValue:num)
+                .map(num -> num == value ? newValue : num)
                 .toArray());
         return customArray;
     }

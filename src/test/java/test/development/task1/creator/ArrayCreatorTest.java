@@ -2,13 +2,10 @@ package test.development.task1.creator;
 
 import com.development.task1.creator.impl.ArrayCreatorImpl;
 import com.development.task1.entity.CustomArray;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ArrayCreatorTest {
-    static final Logger LOGGER = LogManager.getLogger(CustomArray.class.getSimpleName());
 
     @Test
     public void createNumber() {
