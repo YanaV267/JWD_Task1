@@ -33,12 +33,12 @@ public class ArrayOperationImpl implements ArrayOperation {
 
     @Override
     public CustomArray replaceInPosition(CustomArray customArray, int position, double newValue) {
-        if (!ArrayValidatorImpl.getInstance().checkPosition(customArray, position)) {
-            LOGGER.error(" position is out of range for current array");
-        } else {
+        if (ArrayValidatorImpl.getInstance().checkPosition(customArray, position)) {
             double[] array = customArray.getArray();
             array[position] = newValue;
             customArray.setArray(array);
+        } else {
+            LOGGER.error(" position is out of range for current array");
         }
         return customArray;
     }

@@ -28,13 +28,14 @@ public class ArrayOperationStreamImpl implements ArrayOperationStream {
 
     @Override
     public CustomArray replaceInPosition(CustomArray customArray, int position, double newValue) {
-        if (!ArrayValidatorImpl.getInstance().checkPosition(customArray, position)) {
+        if (ArrayValidatorImpl.getInstance().checkPosition(customArray, position)) {
+            double value = customArray.getArray()[position];
+            customArray.setArray(DoubleStream.of(customArray.getArray())
+                    .map(num -> num == value ? newValue : num)
+                    .toArray());
+        } else {
             LOGGER.error(" position is out of range for current array");
         }
-        double value = customArray.getArray()[position];
-        customArray.setArray(DoubleStream.of(customArray.getArray())
-                .map(num -> num == value ? newValue : num)
-                .toArray());
         return customArray;
     }
 
